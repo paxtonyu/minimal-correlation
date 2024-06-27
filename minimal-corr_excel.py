@@ -25,7 +25,6 @@ def compute_lowest_correlations(data, N):
     return lowest_correlations
 
 
-# 使用示例
 file_path = "./datasets/Val_ManufacturerA.xlsx"
 Spectral_data = load_data(file_path)
 lowest_correlations = compute_lowest_correlations(Spectral_data, 5)
