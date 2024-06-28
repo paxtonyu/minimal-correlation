@@ -25,11 +25,11 @@ def load_data(file_path):
 
 
 # Compute the average correlation for a given set of rows
-def compute_average_correlation(data, indices):
+def compute_average_correlation(data, comb):
     correlations = []
-    for i, j in combinations(indices, 2):
-        row_i = data.iloc[i, :].values
-        row_j = data.iloc[j, :].values
+    for i, j in combinations(comb, 2):
+        row_i = data.iloc[i, 1:].values  # 0~9 rows, 1~end columns
+        row_j = data.iloc[j, 1:].values  # the first column is the label
         corr = np.corrcoef(row_i, row_j)[0, 1]
         correlations.append(corr)
     average_correlation = np.mean(correlations)
@@ -38,10 +38,10 @@ def compute_average_correlation(data, indices):
 
 # Find the combination of 5 rows with the lowest average correlation
 def find_lowest_correlation_combination(data):
-    indices = list(range(data.shape[0]))
-    combinations_of_five = list(combinations(indices, 5))
-
-    lowest_correlation = float("inf")
+    row_numbers = list(range(data.shape[0]))
+    combinations_of_five = list(combinations(row_numbers, 5))
+    # combinations(range(4), 3) --> (0,1,2), (0,1,3), (0,2,3), (1,2,3)
+    lowest_correlation = float("inf")  # set the initial lowest correlation to infinity
     best_combination = None
 
     for comb in combinations_of_five:
