@@ -27,7 +27,7 @@ def load_data(file_path):
 # Compute the average correlation for a given set of rows
 def compute_average_correlation(data, comb):
     correlations = []
-    for i, j in combinations(comb, 2):
+    for i, j in combinations(comb, 2):  # combine each 2 rows in comb
         row_i = data.iloc[i, 1:].values  # 0~9 rows, 1~end columns
         row_j = data.iloc[j, 1:].values  # the first column is the label
         corr = np.corrcoef(row_i, row_j)[0, 1]
@@ -44,7 +44,7 @@ def find_lowest_correlation_combination(data):
     lowest_correlation = float("inf")  # set the initial lowest correlation to infinity
     best_combination = None
 
-    for comb in combinations_of_five:
+    for comb in combinations_of_five:  # comb = (0,1,2,3,4) etc..
         avg_corr = compute_average_correlation(data, comb)
         if avg_corr < lowest_correlation:
             lowest_correlation = avg_corr
