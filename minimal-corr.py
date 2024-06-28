@@ -30,7 +30,7 @@ def compute_lowest_correlations(data, N):
 
     for i in range(rows):
         for j in range(i + 1, rows):
-            row_i = data.iloc[i, 1:].values  # 0~9 rows, 1:end columns
+            row_i = data.iloc[i, 1:].values  # 0~9 rows, 1~end columns
             row_j = data.iloc[j, 1:].values  # the first column is the label
             corr = np.corrcoef(row_i, row_j)[0, 1]
             correlations.append(((i, j), corr))
