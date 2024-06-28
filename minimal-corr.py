@@ -3,6 +3,10 @@ import numpy as np
 from scipy.io import loadmat
 import os
 
+file_path = "./datasets/Val_ManufacturerA.xlsx"  # change to your actual file path
+input_num = 10
+selected_num = 5
+
 
 # Get the first ten original data
 def load_data(file_path):
@@ -39,9 +43,9 @@ def compute_lowest_correlations(data, N):
     return lowest_correlations
 
 
-file_path = "./datasets/Val_ManufacturerA.xlsx"  # change to your actual file path
-Original_data = load_data(file_path)
-lowest_correlations = compute_lowest_correlations(Original_data, 5)
-print("The 5 pairs of rows with the lowest correlations are:")
-for (i, j), corr in lowest_correlations:
-    print(f"Rows {i+1} and {j+1} with correlation {corr:.4f}")
+if __name__ == "__main__":
+    Original_data = load_data(file_path)
+    lowest_correlations = compute_lowest_correlations(Original_data, 5)
+    print("The 5 pairs of rows with the lowest correlations are:")
+    for (i, j), corr in lowest_correlations:
+        print(f"Rows {i+1} and {j+1} with correlation {corr:.4f}")
