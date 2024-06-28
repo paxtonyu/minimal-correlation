@@ -26,5 +26,5 @@ Y = np.random.rand(741)
 
 correlation = pearson_correlation(X, Y)
 corr = np.corrcoef(X, Y)[0, 1]
-print(f"my correlation coefficient is {correlation:.4f}")
-print(f"numpy correlation coefficient is {corr:.4f}")
+print(f"my correlation coefficient is {correlation:.6f}")
+print(f"numpy correlation coefficient is {corr:.6f}")
