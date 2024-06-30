@@ -55,7 +55,7 @@ def find_lowest_correlation_combinations(data, output_num):
     for comb in the_combinations:  # comb = (0,1,2,3,4) etc..
         avg_corr = compute_average_correlation(data, comb)
         abs_avg_corr = abs(avg_corr)
-        if len(lowest_combinations) < 3:
+        if len(lowest_combinations) < 3:  # only keep the top 3s
             heapq.heappush(lowest_combinations, (-abs_avg_corr, avg_corr, comb))
         else:
             heapq.heappushpop(lowest_combinations, (-abs_avg_corr, avg_corr, comb))
