@@ -24,8 +24,10 @@ def load_data(file_path, input_num):
         raise ValueError(
             "Unsupported file format. Please provide a .xlsx or .mat file."
         )
-
-    original_data = data.iloc[:input_num, 1:]  # the first column is the label
+    if all(data.iloc[:input_num, 0].diff().dropna() == 1):  #
+        original_data = data.iloc[:input_num, 1:]  # check if the first column is label
+    else:
+        original_data = data.iloc[:input_num, :]
     return original_data
 
 
