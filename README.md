@@ -10,4 +10,8 @@ you can change the `input_num` and `output_num` to change the number of rows you
 
 change the `file_path` variable to your actual file path
 
+the first column is automatically ignored by the program if it is an id.
+
+because of the reading mechanism of panda, the first row of the excel file should be the label, and the second row should be the data, while the first row of the mat file is the data.
+
 the mat data should be sorted in  a variable named `original_data` in the `.mat` file
