@@ -5,8 +5,8 @@ import os
 from itertools import combinations  # C(n,m)
 import heapq
 
-# file_path = "./datasets/Val_ManufacturerA.xlsx"  # change to your actual file path
-file_path = "./datasets/original_data.mat"
+file_path = "./datasets/Val_ManufacturerA.xlsx"  # change to your actual file path
+# file_path = "./datasets/original_data.mat"
 input_num = 10  # assuming the original data is 10 rows
 output_num = 5  # number of rows to be selected
 
