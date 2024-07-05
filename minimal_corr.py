@@ -78,6 +78,4 @@ if __name__ == "__main__":
     )
     print(f"The 3 combinations with the smallest absolute average correlations are:")
     for abs_corr, corr, comb in lowest_combinations:
-        print(
-            f"Combination {comb} with average correlation {corr:.6f} (absolute correlation {abs_corr:.6f})"
-        )
+        print(f"Combination {comb} with average correlation {corr:.6f} )")
