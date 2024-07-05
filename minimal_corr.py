@@ -77,7 +77,7 @@ if __name__ == "__main__":
     lowest_combinations = find_lowest_correlation_combinations(
         original_data, output_num
     )
-    print(f"The 3 combinations with the smallest absolute average correlations are:")
+    print(f"The 3 combinations with the lowest absolute average correlations are:")
     for abs_corr, corr, comb in lowest_combinations:
         comb_1_based = tuple(index + 1 for index in comb)  # convert to 1-based sequence
         print(f"Combination {comb_1_based} with average correlation {corr:.6f}")
