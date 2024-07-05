@@ -9,6 +9,7 @@ file_path = "./datasets/Val_ManufacturerA.xlsx"  # change to your actual file pa
 # file_path = "./datasets/original_data.mat"
 input_num = 10  # assuming the original data is 10 rows
 output_num = 5  # number of rows to be selected
+group_num = 3  # number of lowest corr groups
 
 
 # Get the original data
@@ -55,7 +56,7 @@ def find_lowest_correlation_combinations(data, output_num):
     for comb in the_combinations:  # comb = (0,1,2,3,4) etc..
         avg_corr = compute_average_correlation(data, comb)
         abs_avg_corr = abs(avg_corr)
-        if len(lowest_combinations) < 3:  # only keep the top 3s
+        if len(lowest_combinations) < group_num:  # only keep the top 3s
             heapq.heappush(lowest_combinations, (-abs_avg_corr, avg_corr, comb))
         else:
             heapq.heappushpop(lowest_combinations, (-abs_avg_corr, avg_corr, comb))
@@ -78,4 +79,5 @@ if __name__ == "__main__":
     )
     print(f"The 3 combinations with the smallest absolute average correlations are:")
     for abs_corr, corr, comb in lowest_combinations:
-        print(f"Combination {comb} with average correlation {corr:.6f} )")
+        comb_1_based = tuple(index + 1 for index in comb)  # convert to 1-based sequence
+        print(f"Combination {comb_1_based} with average correlation {corr:.6f}")
